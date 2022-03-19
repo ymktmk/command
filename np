@@ -1,0 +1,21 @@
+#!/bin/sh
+
+if [ $# != 1 ]; then
+    echo "Please tell me the project name"
+    exit 0
+fi
+
+# current directory path
+current_dir=`pwd 2>&1`
+
+# project name
+folder=$1
+
+# make project folder
+mkdir $folder
+
+# project path
+path="${current_dir}/${folder}"
+
+# open vscode but you have to install code
+code $path
