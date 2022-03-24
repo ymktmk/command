@@ -1,4 +1,6 @@
-# 自分の作ったcommand集です
+# This is a collection of commands I made
+
+https://qiita.com/ymktmk/items/783b59d6d01973580d96
 
 ```
 cd ~
