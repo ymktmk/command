@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# 引数がないとき
+if [ -z "$1" ]; then
+      list=`ls ~/.aws 2>&1`
+      echo "${list}"
+else
+      # 引数1個あるが３個ない時
+      if [ -z "$2" ]; then
+            # awsctx account アカウントの切り替え
+            cp ~/.aws/$1 ~/.aws/credentials
+            echo "aws account change done ..."
+            echo "↓ ↓ ↓ credentials ↓ ↓ ↓"
+            cat ~/.aws/credentials
+      else
+            # awsctx account aaaaa bbbbbb アカウントの作成
+            account=$1
+            echo "[default]\naws_access_key_id = $2\naws_secret_access_key = $3\nregion = ap-northeast-1" > ~/.aws/${account}
+            echo "↓ ↓ ↓ ${account} ↓ ↓ ↓"
+            cat ~/.aws/$account
+      fi
+fi
